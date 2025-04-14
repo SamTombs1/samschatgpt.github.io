@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sam's Chat GPT - GCSE English Revision</title>
+  <title>Sam's Revision Website - GCSE English Revision</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -37,12 +37,21 @@
     h2 {
       color: #3f51b5;
     }
-    .quote {
+    .quote, .flashcard {
       font-style: italic;
       background-color: #e8eaf6;
       padding: 10px;
       border-left: 4px solid #3f51b5;
       margin: 10px 0;
+    }
+    .flashcard {
+      cursor: pointer;
+    }
+    .quiz-question {
+      margin-bottom: 10px;
+    }
+    .quiz-question input[type="radio"] {
+      margin-right: 5px;
     }
     footer {
       background-color: #3f51b5;
@@ -50,89 +59,141 @@
       text-align: center;
       padding: 10px;
     }
+    .correct {
+      color: green;
+    }
+    .wrong {
+      color: red;
+    }
+    .quiz-result {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    .didyouknow {
+      font-size: 1.1em;
+      background-color: #f3f4f8;
+      padding: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #3f51b5;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Sam's Chat GPT</h1>
+    <h1>Sam's Revision Website</h1>
     <p>GCSE English Literature - WJEC Revision Site</p>
   </header>
 
   <nav>
     <a href="#ofmiceandmen">Of Mice and Men</a>
     <a href="#unseenpoetry">Unseen Poetry</a>
-    <a href="#tips">Exam Tips</a>
+    <a href="#quiz">Quizzes</a>
+    <a href="#didyouknow">Did You Know?</a>
   </nav>
 
   <main>
     <section id="ofmiceandmen">
-      <h2>Of Mice and Men</h2>
-      <p><strong>Overview:</strong> A novel by John Steinbeck about the American Dream, friendship, loneliness, and power dynamics during the Great Depression.</p>
+      <h2>Of Mice and Men Flashcards</h2>
+      <p>Click on the flashcards to reveal the answer!</p>
 
-      <h3>Themes:</h3>
-      <ul>
-        <li>The American Dream</li>
-        <li>Loneliness and Isolation</li>
-        <li>Friendship</li>
-        <li>Power and Disempowerment</li>
-      </ul>
+      <div class="flashcard" onclick="toggleAnswer(this)">
+        Q: What theme is shown through George and Lennie's friendship?
+        <div style="display:none;">A: Friendship and Loyalty</div>
+      </div>
 
-      <h3>Characters:</h3>
-      <ul>
-        <li><strong>George:</strong> Smart and protective</li>
-        <li><strong>Lennie:</strong> Childlike, strong, mentally disabled</li>
-        <li><strong>Crooks:</strong> Isolated, black stable-hand</li>
-        <li><strong>Curley's Wife:</strong> Lonely, misunderstood</li>
-      </ul>
+      <div class="flashcard" onclick="toggleAnswer(this)">
+        Q: Who says “A guy needs somebody – to be near him”?
+        <div style="display:none;">A: Crooks</div>
+      </div>
 
-      <h3>Key Quotes:</h3>
-      <div class="quote">“Guys like us, that work on ranches, are the loneliest guys in the world.”</div>
-      <div class="quote">“I got you to look after me, and you got me to look after you.”</div>
-      <div class="quote">“A guy needs somebody - to be near him.”</div>
+      <div class="flashcard" onclick="toggleAnswer(this)">
+        Q: What does Lennie dream of?
+        <div style="display:none;">A: Tending rabbits on a farm with George</div>
+      </div>
 
-      <h3>Sample Essay Tip:</h3>
-      <p>Always link your quotes to the context (e.g., 1930s America, Great Depression) and themes. Use PEE paragraphs (Point, Evidence, Explain).</p>
+      <div class="flashcard" onclick="toggleAnswer(this)">
+        Q: Who is the first character introduced in the novel?
+        <div style="display:none;">A: George Milton</div>
+      </div>
     </section>
 
     <section id="unseenpoetry">
-      <h2>Unseen Poetry</h2>
-      <p><strong>What to do:</strong></p>
+      <h2>Unseen Poetry Techniques</h2>
+      <p>Match the technique to its effect:</p>
       <ul>
-        <li>Read the poem twice</li>
-        <li>Highlight keywords, techniques (similes, metaphors, personification)</li>
-        <li>Write about how the poet presents emotions, ideas, or relationships</li>
-        <li>Structure answer in paragraphs, using evidence from the poem</li>
+        <li><strong>Simile:</strong> Compares two things using 'like' or 'as'</li>
+        <li><strong>Personification:</strong> Gives human qualities to non-human things</li>
+        <li><strong>Enjambment:</strong> Lines run over without punctuation → flow or emotion</li>
+        <li><strong>Alliteration:</strong> Repeating consonants → creates rhythm or mood</li>
+        <li><strong>Imagery:</strong> Appeals to senses → paints a picture</li>
       </ul>
-
-      <h3>Common Techniques:</h3>
-      <ul>
-        <li>Imagery</li>
-        <li>Enjambment</li>
-        <li>Alliteration</li>
-        <li>Symbolism</li>
-      </ul>
-
-      <h3>Mini Practice:</h3>
-      <p><strong>“The wind whispered through the trees, like voices from another world.”</strong></p>
-      <p>What technique is used? How does it create atmosphere?</p>
     </section>
 
-    <section id="tips">
-      <h2>Exam Tips</h2>
-      <ul>
-        <li>Always plan before you write</li>
-        <li>Underline key words in the question</li>
-        <li>Include context for *Of Mice and Men*</li>
-        <li>Quote, explain, and zoom in on language</li>
-        <li>Practice timing – 45 minutes for each section</li>
-      </ul>
+    <section id="quiz">
+      <h2>Quick Quiz: Of Mice and Men</h2>
+
+      <div class="quiz-question">
+        <p>1. Who kills Lennie?</p>
+        <label><input type="radio" name="q1" onclick="checkAnswer(this, true)"> George</label><br>
+        <label><input type="radio" name="q1" onclick="checkAnswer(this, false)"> Curley</label><br>
+        <label><input type="radio" name="q1" onclick="checkAnswer(this, false)"> Slim</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>2. What is the setting of the novel?</p>
+        <label><input type="radio" name="q2" onclick="checkAnswer(this, true)"> California, 1930s</label><br>
+        <label><input type="radio" name="q2" onclick="checkAnswer(this, false)"> New York, 1920s</label><br>
+        <label><input type="radio" name="q2" onclick="checkAnswer(this, false)"> Texas, 1940s</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>3. What theme is shown through Crooks?</p>
+        <label><input type="radio" name="q3" onclick="checkAnswer(this, true)"> Isolation and Racism</label><br>
+        <label><input type="radio" name="q3" onclick="checkAnswer(this, false)"> Wealth and Power</label><br>
+        <label><input type="radio" name="q3" onclick="checkAnswer(this, false)"> Jealousy and Greed</label>
+      </div>
+
+      <div id="quiz-result" class="quiz-result"></div>
+    </section>
+
+    <section id="didyouknow">
+      <h2>Did You Know?</h2>
+      <div class="didyouknow">
+        <p><strong>Fun Fact:</strong> In *Of Mice and Men*, Steinbeck based the character of Lennie on a friend he had growing up. The friend had a mental disability and was much stronger than others.</p>
+      </div>
+      <div class="didyouknow">
+        <p><strong>Tip:</strong> When studying for *Of Mice and Men*, focus on the significance of the American Dream. It’s a core theme that will likely come up in your exam questions!</p>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>Made by Sam | Powered by ChatGPT</p>
   </footer>
+
+  <script>
+    let correctAnswers = 0;
+
+    function toggleAnswer(el) {
+      const answer = el.querySelector("div");
+      answer.style.display = answer.style.display === "none" ? "block" : "none";
+    }
+
+    function checkAnswer(input, isCorrect) {
+      const allOptions = input.parentElement.parentElement.querySelectorAll("label");
+      allOptions.forEach(label => label.classList.remove("correct", "wrong"));
+      input.parentElement.classList.add(isCorrect ? "correct" : "wrong");
+
+      if (isCorrect) {
+        correctAnswers++;
+      } else {
+        correctAnswers = Math.max(0, correctAnswers - 1);
+      }
+
+      document.getElementById("quiz-result").innerHTML = `Your score: ${correctAnswers} / 3`;
+    }
+  </script>
 
 </body>
 </html>
